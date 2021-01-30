@@ -4,6 +4,7 @@
 
 - Only HTML, CSS clone
 - All images and videos will be replaced by dummy images
+- Useing gulp to compile scss
 
 ## web page list
 
