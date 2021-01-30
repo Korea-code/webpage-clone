@@ -1,15 +1,26 @@
 @import '../reset';
 @import 'variables';
-
+@import './button';
+* {
+  box-sizing: border-box;
+}
 a {
   color: inherit;
   text-decoration: none;
 }
+body {
+  color: #484848;
+}
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
   display: flex;
   justify-content: space-evenly;
   text-transform: uppercase;
-  height: 155px;
+  height: 120px;
   align-items: center;
   font-family: $sub-font;
   .logo {
@@ -35,7 +46,7 @@ header {
   }
 }
 .main-section {
-  min-height: 200vh;
+  margin-top: 160px;
   font-family: $main-font;
   color: #414141;
 }
@@ -63,6 +74,9 @@ header {
       font-size: 2.2em;
       width: 520px;
     }
+    button {
+      @extend %button;
+    }
   }
 }
 .sub-section {
@@ -71,6 +85,8 @@ header {
 }
 .article-style1 {
   display: flex;
+  // article margin * 2, because of margin collapsing
+  margin-top: 80px;
   div {
     width: 50%;
   }
@@ -83,16 +99,110 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    .style1-description-title {
-      text-transform: uppercase;
-      font-family: $sub-font;
-      margin-bottom: 30px;
-    }
+
     .style1-description-text {
       font-size: 2em;
       width: 400px;
       margin-bottom: 60px;
       text-align: center;
     }
+    button {
+      @extend %button;
+    }
+  }
+}
+.small-title {
+  text-transform: uppercase;
+  font-family: $sub-font;
+  margin-bottom: 30px;
+}
+.article-style2 {
+  display: flex;
+  width: 100%;
+  margin-top: 80px;
+  flex-direction: column;
+  align-items: center;
+  .article-style2-title {
+    font-size: 2.2em;
+    margin-bottom: 100px;
+  }
+  .style2-item-wrapper {
+    display: flex;
+    justify-content: space-between;
+    .style2-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      width: 30%;
+      .small-title {
+        margin-bottom: 15px;
+      }
+      .style2-item-title {
+        font-size: 2em;
+        font-style: italic;
+        margin-bottom: 30px;
+      }
+      .price {
+        font-family: $sub-font;
+        color: $greyColor;
+        margin-bottom: 30px;
+      }
+
+      .style2-item-picture {
+        width: 100%;
+        margin-bottom: 50px;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+.center-button {
+  @extend %button;
+  justify-content: center;
+  div {
+    margin: 0;
+    text-align: center;
+  }
+}
+#article3 {
+  background-color: #dee8e9;
+}
+
+.article-style3 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+  .style3-title {
+    font-size: 2.2em;
+    margin-bottom: 60px;
+  }
+  .style3-items {
+    display: flex;
+    margin-bottom: 60px;
+    .style3-item {
+      border-right: 1px solid $greyColor;
+      &:last-child {
+        border-right: none;
+      }
+      .number {
+        color: $greyColor;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.article-style4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 80px;
+  grid-auto-rows: 30vw;
+  .item {
+    border: solid 1px black;
   }
 }

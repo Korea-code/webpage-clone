@@ -1,0 +1,36 @@
+%button {
+  border: 1px solid #414141;
+  background-color: inherit;
+  width: 300px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  div {
+    margin-left: 23px;
+    font-size: 1.2em;
+    line-height: 60px;
+    font-family: $sub-font;
+    text-transform: uppercase;
+    height: 100%;
+    &:nth-child(2) {
+      width: 60px;
+      font-size: 1.7em;
+      border-left: solid 1px #414141;
+    }
+  }
+  &:hover {
+    animation: button-activation 0.4s ease;
+    -webkit-animation-fill-mode: both;
+  }
+}
+
+@keyframes button-activation {
+  from {
+    background-color: none;
+  }
+  to {
+    background-color: #414141;
+    color: white;
+  }
+}
