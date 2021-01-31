@@ -1,6 +1,7 @@
 @import '../reset';
 @import 'variables';
 @import './button';
+@import '../mixins';
 * {
   box-sizing: border-box;
 }
@@ -13,6 +14,7 @@ body {
 }
 header {
   position: fixed;
+  z-index: 100;
   top: 0;
   left: 0;
   width: 100%;
@@ -44,6 +46,27 @@ header {
       margin-right: 30px;
     }
   }
+  @include responsive('phone') {
+    height: 80px;
+
+    .nav-left {
+      display: none;
+      width: 0;
+    }
+    .nav-right {
+      display: none;
+      width: 0;
+    }
+    justify-content: center;
+    .logo::before {
+      content: '☰';
+      margin-right: 80px;
+    }
+    .logo::after {
+      content: 'cart';
+      margin-left: 60px;
+    }
+  }
 }
 .main-section {
   margin-top: 160px;
@@ -55,6 +78,7 @@ header {
   width: 100%;
   margin: $article_margin 0;
   text-align: center;
+
   .main-picture {
     width: 50%;
     img {
@@ -79,10 +103,53 @@ header {
       @extend %button;
     }
   }
+  @include responsive('phone') {
+    flex-direction: column;
+    .main-picture {
+      width: 100%;
+    }
+    .main-description {
+      width: 100%;
+      font-size: 0.7em;
+      padding: 40px 0;
+      p {
+        width: 80%;
+      }
+    }
+  }
+  @include responsive('small') {
+    flex-direction: column;
+    .main-picture {
+      width: 100%;
+    }
+    .main-description {
+      width: 100%;
+      font-size: 0.7em;
+      padding: 40px 0;
+    }
+  }
+  @include responsive('medium') {
+    flex-direction: column;
+    .main-picture {
+      width: 100%;
+    }
+    .main-description {
+      width: 100%;
+      font-size: 0.8em;
+      padding: 40px 0;
+    }
+  }
 }
 .sub-section {
   width: 80%;
   margin: 0 auto;
+  @include responsive('phone') {
+    width: 100%;
+  }
+  @include responsive('small') {
+    width: 100%;
+    margin: 0;
+  }
 }
 .article-style1 {
   display: flex;
@@ -112,6 +179,36 @@ header {
       @extend %button;
     }
   }
+  @include responsive('phone') {
+    flex-direction: column;
+    div {
+      width: 100%;
+    }
+    .article-style1-description {
+      padding: 40px 0;
+    }
+    .style1-description-text {
+      font-size: 1.5em;
+    }
+  }
+  @include responsive('small') {
+    flex-direction: column;
+    div {
+      width: 100%;
+    }
+    .article-style1-description {
+      padding: 40px 0;
+    }
+  }
+  @include responsive('medium') {
+    flex-direction: column;
+    div {
+      width: 100%;
+    }
+    .article-style1-description {
+      padding: 40px 0;
+    }
+  }
 }
 .small-title {
   text-transform: uppercase;
@@ -127,6 +224,7 @@ header {
   .article-style2-title {
     font-size: 2.2em;
     margin-bottom: 100px;
+    text-align: center;
   }
   .style2-item-wrapper {
     display: flex;
@@ -141,9 +239,11 @@ header {
         margin-bottom: 15px;
       }
       .style2-item-title {
-        font-size: 2em;
+        font-size: 1.6em;
+        color: $greyColor;
         font-style: italic;
         margin-bottom: 30px;
+        text-align: center;
       }
       .price {
         font-family: $sub-font;
@@ -157,6 +257,50 @@ header {
         img {
           width: 100%;
         }
+      }
+    }
+  }
+  @include responsive('phone') {
+    .style2-item-wrapper {
+      width: 100%;
+      overflow: scroll;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 100vw;
+
+      .style2-item {
+        width: 80%;
+        margin-right: 10%;
+        margin-left: 10%;
+      }
+      button {
+        width: 80%;
+      }
+    }
+  }
+  @include responsive('small') {
+    .style2-item-wrapper {
+      width: 100%;
+      overflow: scroll;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 100vw;
+
+      .style2-item {
+        width: 80%;
+        margin-right: 10%;
+        margin-left: 10%;
+      }
+      button {
+        width: 80%;
+      }
+    }
+  }
+  @include responsive('medium') {
+    .style2-item-wrapper {
+      width: 100%;
+      button {
+        width: 100%;
       }
     }
   }
@@ -182,10 +326,16 @@ header {
   .style3-title {
     font-size: 2.2em;
     margin-bottom: 60px;
+    text-align: center;
   }
   .style3-items {
     display: flex;
     margin-bottom: 60px;
+    justify-content: center;
+    img {
+      width: 80%;
+      margin: 0 10%;
+    }
     .style3-item {
       border-right: 1px solid $greyColor;
       &:last-child {
@@ -195,6 +345,26 @@ header {
         color: $greyColor;
         text-align: center;
       }
+    }
+    @include responsive('phone') {
+      width: 100%;
+      overflow-y: hidden;
+      overflow-x: scroll;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 50vw;
+    }
+    @include responsive('small') {
+      min-height: 200px;
+      width: 100%;
+      overflow-y: hidden;
+      overflow-x: scroll;
+
+      // why??
+      padding-left: 50vw;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 25vw;
     }
   }
 }
@@ -206,6 +376,14 @@ header {
   grid-auto-rows: 30vw;
   .item {
     border: solid 1px black;
+  }
+  @include responsive('phone') {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 60vw;
+  }
+  @include responsive('small') {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 60vw;
   }
 }
 .article-style5 {
@@ -220,15 +398,25 @@ header {
     margin-bottom: 60px;
   }
   .input-area {
-    width: 70%;
+    width: 50%;
     padding-bottom: 20px;
     border-bottom: 1px solid $greyColor;
     input {
       border: none;
       font-size: 2.5em;
+      width: calc(100% - 50px);
+      &:focus {
+        outline: none;
+      }
       &::placeholder {
         font-family: $main-font;
         color: $greyColor;
+      }
+    }
+    @include responsive('phone') {
+      width: 80%;
+      input::placeholder {
+        font-size: 0.7em;
       }
     }
     button {
@@ -251,7 +439,12 @@ header {
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 20vw;
   margin: 80px 0;
+
   .item {
+    &:hover {
+      animation: style6-hover-animation 0.4s ease;
+      -webkit-animation-fill-mode: both;
+    }
     &:nth-child(odd) {
       background-color: #a5a39f;
     }
@@ -264,6 +457,32 @@ header {
     &:nth-child(6) {
       background-color: #e5cfbd;
     }
+  }
+  @include responsive('phone') {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 50vw;
+  }
+  @include responsive('small') {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 50vw;
+  }
+}
+@keyframes style6-hover-animation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+.article-style7 {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0;
+  font-size: 2.5em;
+  p {
+    float: right;
+    color: $greyColor;
   }
 }
 
@@ -292,5 +511,23 @@ footer {
       text-align: center;
       margin: 15px;
     }
+    @include responsive('phone') {
+      border-right: none;
+      border-bottom: 1px solid $greyColor;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+    @include responsive('small') {
+      border-right: none;
+      border-bottom: 1px solid $greyColor;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+  }
+  @include responsive('phone') {
+    flex-direction: column;
+  }
+  @include responsive('small') {
+    flex-direction: column;
   }
 }
