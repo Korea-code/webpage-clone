@@ -9,7 +9,7 @@
 ## web page list
 
 1. [x] https://besthorrorscenes.com/
-2. [ ] https://paint-box.com/
+2. [x] https://paint-box.com/
 3. [ ] http://10x19.co/
 4. [ ] http://www.z-o-o.fr/
 5. [ ] https://schwartzmedia.com.au/
