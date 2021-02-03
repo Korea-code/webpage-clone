@@ -1,0 +1,27 @@
+%button {
+  width: 120px;
+  height: 30px;
+  border-radius: 15px;
+  border: 1px solid grey;
+  background: none;
+  font-weight: 600;
+  margin: 30px 3px;
+  margin-bottom: -20px;
+  font-weight: 300;
+
+  &:hover {
+    animation: buttonAinimation 0.4s ease;
+    -webkit-animation-fill-mode: both;
+  }
+}
+
+@keyframes buttonAinimation {
+  from {
+    background-color: white;
+    color: black;
+  }
+  to {
+    background-color: black;
+    color: white;
+  }
+}

@@ -1,4 +1,229 @@
+@import '../reset';
+@import 'button';
+@import '../mixins';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
 header {
+  height: 50px;
+  font-weight: 500;
+  border-bottom: 1px solid black;
+  text-align: center;
+  font-size: 2em;
+  line-height: 1.5em;
+}
+.main-section {
+  max-width: 1107px;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 2.2em;
+}
+h2 {
+  font-size: 1.7em;
+  font-weight: 500;
+}
+p {
+  font-size: 2em;
+  line-height: 1.5em;
+  padding: 3px;
+}
+p.small {
+  font-size: 1.4em;
+}
+button {
+  @extend %button;
+}
+@include responsive('phone') {
+  .main-text {
+    margin: 80px 20px;
+    font-size: 0.7em;
+  }
+  .main-section {
+    width: 100vw;
+  }
+  header {
+    margin: 0;
+  }
+}
+.main-article {
+  img {
+    width: 100%;
+  }
+  .main-text {
+    margin: 80px 30px;
+    h1 {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+  }
+}
+.subsection {
+  margin: 0 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  .content {
+    border-top: 1px solid grey;
+    padding: 20px;
+    height: 100%;
+    position: relative;
+    img {
+      width: 100%;
+    }
+    &.order1 {
+      order: 1;
+    }
+    &.order2 {
+      order: 2;
+    }
+    &.order3 {
+      order: 3;
+    }
+    &.order4 {
+      order: 4;
+    }
+    &.order5 {
+      order: 5;
+    }
+    &.order6 {
+      order: 6;
+    }
+    &.order7 {
+      order: 7;
+    }
+    &.order8 {
+      order: 8;
+    }
+    &.order9 {
+      order: 9;
+    }
+    &.order10 {
+      order: 10;
+    }
+    &.order11 {
+      order: 11;
+    }
+    &.order12 {
+      order: 12;
+    }
+    &.order13 {
+      order: 13;
+    }
+    &.order14 {
+      order: 14;
+    }
+  }
+  h2 {
+    margin-bottom: 30px;
+  }
+
+  @include responsive('medium') {
+    font-size: 0.8em;
+  }
+  @include responsive('small') {
+    font-size: 0.6em;
+  }
+  @include responsive('phone') {
+    flex-direction: column;
+    font-size: 0.5em;
+    grid-template-columns: 1fr;
+    .content {
+      &.text {
+        border-top: none;
+      }
+      &.order1 {
+        order: 0;
+      }
+      &.order2 {
+        order: 0;
+      }
+      &.order3 {
+        order: 0;
+      }
+      &.order4 {
+        order: 0;
+      }
+      &.order5 {
+        order: 0;
+      }
+      &.order6 {
+        order: 0;
+      }
+      &.order7 {
+        order: 0;
+      }
+      &.order8 {
+        order: 0;
+      }
+      &.order9 {
+        order: 0;
+      }
+      &.order10 {
+        order: 0;
+      }
+      &.order11 {
+        order: 0;
+      }
+      &.order12 {
+        order: 0;
+      }
+      &.order13 {
+        order: 0;
+      }
+      &.order14 {
+        order: 0;
+      }
+    }
+  }
+}
+.bottom-section {
+  margin: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid black;
+  article {
+    padding: 25px;
+    h2 {
+      margin-bottom: 40px;
+    }
+  }
+  @include responsive('medium') {
+    article {
+      font-size: 0.7em;
+      h2 {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  @include responsive('small') {
+    flex-direction: column;
+    article {
+      font-size: 0.7em;
+      h2 {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  @include responsive('phone') {
+    flex-direction: column;
+
+    article {
+      font-size: 0.7em;
+      h2 {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+footer {
   width: 100%;
-  height: 100px;
+  background-color: #464646;
+  height: 280px;
 }

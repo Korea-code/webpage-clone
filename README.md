@@ -11,7 +11,7 @@
 1. [x] https://besthorrorscenes.com/
 2. [x] https://paint-box.com/
 3. [x] http://10x19.co/
-4. [ ] https://schwartzmedia.com.au/
+4. [x] https://schwartzmedia.com.au/
 5. [ ] https://tolv.dk/
 6. [ ] https://rodicdavidson.co.uk/
 7. [ ] https://beige.de/
