@@ -1,0 +1,34 @@
+$tab: '\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0';
+@mixin anchor($text) {
+  overflow: hidden;
+  position: relative;
+  & > a {
+    cursor: pointer;
+    width: 800%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -350%;
+    display: inline-block;
+  }
+  & > a:hover {
+    animation: hoverAnimation 6s linear infinite forwards;
+    opacity: 0.8;
+  }
+  & > a:hover:before {
+    content: $text + $tab + $tab + $text + $tab + $tab + $text + $tab + $tab;
+    opacity: 0.8;
+  }
+  & > a:hover:after {
+    content: $tab + $tab + $text + $tab + $tab + $text + $tab + $tab + $text;
+    opacity: 0.8;
+  }
+}
+@keyframes hoverAnimation {
+  0% {
+    transform: translateX(5.9%);
+  }
+  100% {
+    transform: translateX(-5.9%);
+  }
+}

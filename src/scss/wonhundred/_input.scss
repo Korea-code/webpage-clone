@@ -1,0 +1,51 @@
+%input {
+  border: none;
+  font-size: 1em;
+  font-weight: 500;
+  display: inline-block;
+  width: 60px;
+  cursor: pointer;
+
+  &::placeholder {
+    color: black;
+  }
+  &:focus {
+    outline: none;
+    width: 20%;
+    animation: inputAnimation 0.4s ease-in-out;
+    -webkit-animation-fill-mode: both;
+  }
+
+  &:focus::-webkit-input-placeholder,
+  textarea:focus::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: transparent;
+  }
+  &:focus:-moz-placeholder,
+  textarea:focus:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: transparent;
+  }
+  &:focus::-moz-placeholder,
+  textarea:focus::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: transparent;
+  }
+  &:focus:-ms-input-placeholder,
+  textarea:focus:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: transparent;
+  }
+  &:focus::-webkit-input-placeholder,
+  textarea:focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+}
+@keyframes inputAnimation {
+  from {
+    width: 30%;
+  }
+  to {
+    width: 80%;
+  }
+}

@@ -1,0 +1,43 @@
+@mixin dropDownList {
+  position: relative;
+  .dropdown {
+    position: absolute;
+    left: -1px;
+    top: 80px;
+
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    z-index: 100;
+    display: none;
+    background-color: white;
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        margin: 0px;
+        line-height: 40px;
+        a {
+          color: black;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  &:hover {
+    .dropdown {
+      display: block;
+      animation: opacityAnimation 0.4s linear;
+    }
+    border-bottom: none;
+  }
+}
+
+@keyframes opacityAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
