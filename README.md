@@ -2,9 +2,16 @@
 
 ## CSS, SCSS practice
 
+- For 1, 2, 3, 4, 5
 - Only HTML, CSS clone
 - All images and videos will be replaced by dummy images
 - Useing gulp to compile scss
+
+## Typescript
+
+- For 6, 7
+- Using TS for more functionalities.
+- Contents changing
 
 ## web page list
 
@@ -12,9 +19,6 @@
 2. [x] https://paint-box.com/
 3. [x] http://10x19.co/
 4. [x] https://schwartzmedia.com.au/
-5. [ ] https://tolv.dk/
-6. [ ] https://rodicdavidson.co.uk/
-7. [ ] https://beige.de/
-8. [ ] http://donicaida.com/
-9. [ ] https://canalstreet.market/
-10. [ ] https://wonhundred.com/
+5. [ ] https://wonhundred.com/
+6. [ ] https://beige.de/
+7. [ ] https://canalstreet.market/
