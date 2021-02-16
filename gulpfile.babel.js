@@ -5,6 +5,7 @@ import minify from 'gulp-csso';
 import autoprefixer from 'gulp-autoprefixer';
 import gulp_image from 'gulp-image';
 import gulp_ts from 'gulp-typescript';
+import ghPages from 'gulp-gh-pages';
 
 sass.compiler = require('node-sass');
 
@@ -23,6 +24,10 @@ const routes = {
     watch: 'src/ts/**/*.ts',
     src: 'src/ts/**/*.ts',
     dest: 'dist/js',
+  },
+  html: {
+    src: 'src/html/*.html',
+    dest: 'dist',
   },
 };
 
@@ -53,12 +58,17 @@ const ts = () =>
     .pipe(gulp_ts(tsProject()))
     .pipe(gulp.dest(routes.ts.dest));
 
-const clean = () => del(['dist/styles.css']);
+const html = () => gulp.src(routes.html.src).pipe(gulp.dest(routes.html.dest));
 
+const clean = () => del(['dist/styles.css', '.publish']);
+
+const gulpDeploy = () => gulp.src('dist/**/*').pipe(ghPages());
 const prepare = gulp.series([clean, img]);
 
-const assets = gulp.series([styles, ts]);
+const assets = gulp.series([html, styles, ts]);
 
 const live = gulp.parallel([watch]);
 
-export const dev = gulp.series([prepare, assets, live]);
+export const build = gulp.series([prepare, assets]);
+export const dev = gulp.series([build, live]);
+export const deploy = gulp.series([build, gulpDeploy, clean]);

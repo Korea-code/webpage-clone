@@ -4,7 +4,9 @@
   "description": "## CSS, SCSS practice",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp dev"
+    "dev": "gulp dev",
+    "build": "gulp build",
+    "deploy": "gulp deploy"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +21,7 @@
     "del": "^6.0.0",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-csso": "^4.0.1",
+    "gulp-gh-pages": "^0.5.4",
     "gulp-image": "^6.2.1",
     "gulp-sass": "^4.1.0",
     "gulp-typescript": "^6.0.0-alpha.1",
