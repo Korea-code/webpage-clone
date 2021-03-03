@@ -7,6 +7,7 @@
   overflow: hidden;
   grid-template-columns: 1fr 75vh 1fr;
   grid-template-rows: 15vh 1fr 15vh;
+  font-size: 0.85em;
   nav {
     grid-column: 1 / -1;
     grid-row: 2 / -2;

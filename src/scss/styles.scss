@@ -2,16 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 * {
   font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
 }
 .wrapper {
-  width: 1080px;
-  height: 100vh;
+  max-width: 1080px;
+  min-height: 100vh;
   background-color: $bgColor;
   margin: 0 auto;
   padding: 30px;
 }
 .header {
   height: 200px;
+  margin-bottom: 50px;
+  background-color: $greyColor;
   h1 {
     display: block;
     color: $greenColor;
@@ -22,35 +25,76 @@
   }
   nav {
     text-align: right;
+
+    padding: 1em 2em;
     a {
-      color: $linkColor;
       font-size: 1.4em;
       margin-right: 20px;
       text-decoration: none;
+      color: $darkGreenColor;
+      background-color: $linkColor;
+      border-radius: 5px;
+      padding: 5px 10px;
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 }
 .content {
   display: grid;
   grid-template-columns: repeat(auto-fill, 300px);
-  grid-auto-rows: 200px;
+  grid-auto-rows: 25em;
   justify-content: space-around;
   gap: 10px;
 }
 .item {
-  border: 3px solid grey;
+  border: 3px solid $darkGreenColor;
+  background-color: $greyColor;
+  padding: 20px 10px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+
   img {
     width: 100%;
   }
+  .desc {
+    height: 15em;
+    border: 2px solid $darkGreenColor;
+    border-radius: 10px;
+    width: 100%;
+    padding: 1em;
+    p {
+      text-indent: 0.5em;
+      margin: 0;
+      padding: 0;
+    }
+  }
   .original-link {
     align-self: flex-end;
+
     margin-right: 20px;
     text-decoration: none;
-    color: $linkColor;
+    color: $darkGreenColor;
+    background-color: $linkColor;
+    border-radius: 5px;
+    padding: 3px;
+    margin-top: 10px;
     line-height: 20px;
   }
+}
+@keyframes hoverAnimation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+a:hover {
+  animation: hoverAnimation 0.3s ease-out;
+  -webkit-animation-fill-mode: both;
 }
